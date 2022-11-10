@@ -1,0 +1,428 @@
+{
+	"compiler": {
+		"version": "0.5.18+commit.6124c569.mod"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Very simple TRC20 Token example, where all tokens are pre-assigned to the creator. Note they can later distribute these tokens as they wish using `transfer` and other `TRC20` functions.",
+			"methods": {
+				"allowance(address,address)": {
+					"details": "See {ITRC20-allowance}."
+				},
+				"approve(address,uint256)": {
+					"details": "See {ITRC20-approve}.     * Requirements:     * - `spender` cannot be the zero address."
+				},
+				"balanceOf(address)": {
+					"details": "See {ITRC20-balanceOf}."
+				},
+				"constructor": {
+					"details": "Constructor that gives msg.sender all of existing tokens."
+				},
+				"decimals()": {
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`).     * Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei.     * NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {ITRC20-balanceOf} and {ITRC20-transfer}."
+				},
+				"decreaseAllowance(address,uint256)": {
+					"details": "Atomically decreases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {ITRC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+				},
+				"increaseAllowance(address,uint256)": {
+					"details": "Atomically increases the allowance granted to `spender` by the caller.     * This is an alternative to {approve} that can be used as a mitigation for problems described in {ITRC20-approve}.     * Emits an {Approval} event indicating the updated allowance.     * Requirements:     * - `spender` cannot be the zero address."
+				},
+				"name()": {
+					"details": "Returns the name of the token."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
+				},
+				"totalSupply()": {
+					"details": "See {ITRC20-totalSupply}."
+				},
+				"transfer(address,uint256)": {
+					"details": "See {ITRC20-transfer}.     * Requirements:     * - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "See {ITRC20-transferFrom}.     * Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {TRC20};     * Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `value`. - the caller must have allowance for `sender`'s tokens of at least `amount`."
+				}
+			},
+			"title": "SimpleToken"
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/PlatToken.sol": "PlatToken"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/PlatToken.sol": {
+			"keccak256": "0xc7f26288ae1dc9f80762f0e4c20c63c1b1204b65cc6ad8a5717fa58c8b0a5738",
+			"urls": [
+				"bzz-raw://88866967d713f2b46d67ae4908bea6a0780ee96e4c0958f1af1f21ea85e385da",
+				"dweb:/ipfs/QmcDkMYibv8qRBa1tqHNaxeMJK3JsBpCy6USxvwx4zQHW6"
+			]
+		},
+		"contracts/role/Ownable.sol": {
+			"keccak256": "0xa495a254e5f9659ccd9d19ae24e1be5f17d8107cda4afb3bf73f1571f473510b",
+			"urls": [
+				"bzz-raw://2638e8bf642c559a66994af072102062ac339c83b9a33dc557ca52c0673976f1",
+				"dweb:/ipfs/QmU95Bc54goox48eHbRhGAbTtvg3XgeTgCouUbmwAN4Ads"
+			]
+		},
+		"contracts/tokens/ITRC20.sol": {
+			"keccak256": "0x9144131a314ac5adbf387886acf74a4eb3e4e7547d5f7f6febb4feaec02a271d",
+			"urls": [
+				"bzz-raw://c961666e8b37bab53a5c39a084e43213aa81c92566a23bc8b96e2f49e9f70117",
+				"dweb:/ipfs/QmTNytkLP3qrJpt6N4G9Px9NwmCUM8JWKm6wKt4JZZyyNf"
+			]
+		},
+		"contracts/tokens/TRC20.sol": {
+			"keccak256": "0x276f0faf2e80fbc946a6e5cb73550726010f6241414effeec56a7ba9d6d28bde",
+			"urls": [
+				"bzz-raw://ceeff1d3e98b569b8f1da1ebaf30733bfd764f5e3d8dcd4a9cbb7c9c8ac1d736",
+				"dweb:/ipfs/QmXj1W7L2zBr1KBuk4WW6NysHAvxPnYd7D9xGmurud1TVt"
+			]
+		},
+		"contracts/tokens/TRC20Detailed.sol": {
+			"keccak256": "0x45844883e0c18405fda4a1432caf003c64b81a0dbeb5a79e56c417a3ca906e03",
+			"urls": [
+				"bzz-raw://db5eee5c15cee5f548aa2b93c53698ecfd080b9a7abb3eb0d584bfc7b6aa79e5",
+				"dweb:/ipfs/QmPXxEXD9mNBQGntEVX2imBo4dKNNndLnNfM8qjLREydyo"
+			]
+		},
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0x958d6f98fc3b5705c8b61886fd57db354272f8df9e29b20db80119733f2b1ca1",
+			"urls": [
+				"bzz-raw://612578d169dedc2a198942255df1e587774b827f2179973599f3274ac510325c",
+				"dweb:/ipfs/QmV9h9QXDY3LLcHzqnMZcyiocnAUiwq3FqCGqUuyeqvmAX"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,248 @@
+{
+	"compiler": {
+		"version": "0.5.18+commit.6124c569.mod"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract ITRC20",
+						"name": "platTokens_",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "batchId",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"name": "CreateCampaign",
+				"type": "event"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "campaigns",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isEnd",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "clientCampaigns",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "batchId",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "createCampaign",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "batchId",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "users",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "payment",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "platTokens",
+				"outputs": [
+					{
+						"internalType": "contract ITRC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "contract ITRC20",
+						"name": "platToken_",
+						"type": "address"
+					}
+				],
+				"name": "setPlatToken",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Task.sol": "Tasks"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Task.sol": {
+			"keccak256": "0x9338afcbdf5082286c48a6b55f1a76b66515a3ee0b66e0759f7c4dfc5beee5ef",
+			"urls": [
+				"bzz-raw://6dc4e63f620b4e91bd0e6a517071ebb8b779662633a98b339a99444192d91165",
+				"dweb:/ipfs/QmPhUZYyfsK24cQHGXipw4Vv8XL5xVtAKu4dhWbwqhZ1x2"
+			]
+		},
+		"contracts/role/Ownable.sol": {
+			"keccak256": "0xa495a254e5f9659ccd9d19ae24e1be5f17d8107cda4afb3bf73f1571f473510b",
+			"urls": [
+				"bzz-raw://2638e8bf642c559a66994af072102062ac339c83b9a33dc557ca52c0673976f1",
+				"dweb:/ipfs/QmU95Bc54goox48eHbRhGAbTtvg3XgeTgCouUbmwAN4Ads"
+			]
+		},
+		"contracts/tokens/ITRC20.sol": {
+			"keccak256": "0x9144131a314ac5adbf387886acf74a4eb3e4e7547d5f7f6febb4feaec02a271d",
+			"urls": [
+				"bzz-raw://c961666e8b37bab53a5c39a084e43213aa81c92566a23bc8b96e2f49e9f70117",
+				"dweb:/ipfs/QmTNytkLP3qrJpt6N4G9Px9NwmCUM8JWKm6wKt4JZZyyNf"
+			]
+		},
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0x958d6f98fc3b5705c8b61886fd57db354272f8df9e29b20db80119733f2b1ca1",
+			"urls": [
+				"bzz-raw://612578d169dedc2a198942255df1e587774b827f2179973599f3274ac510325c",
+				"dweb:/ipfs/QmV9h9QXDY3LLcHzqnMZcyiocnAUiwq3FqCGqUuyeqvmAX"
+			]
+		}
+	},
+	"version": 1
+}
+
