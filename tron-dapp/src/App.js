@@ -9,8 +9,11 @@ import { Button, Card } from "react-bootstrap";
 import TronWeb from 'tronweb'
 
 
-const tokenContractABI = require('./PlatToken.json')['abi'];
+
 const tokenContractAddress = "TEVDdsSRWxpPXv1JwGQ2V3ExrRyScpmQPe";
+
+const tasksContractAddress = "TY2dL6sFD1jPmaNkhCDn4iGvLCXwCb1CCa";
+
 
 
 const mainOptions = {
@@ -90,7 +93,7 @@ function App() {
                 .frozen_balance;
           }
         }
-        let contract = await getContract();
+        let contract = await getContractToken();
         let amountPlat = contract.balanceOf(window.tronWeb.defaultAddress.base58).call().then(function(data) {
 
           console.log(data);
@@ -141,9 +144,32 @@ function App() {
     } 
 }
 
+const createCampaign = async () =>{
+  let contract = await getContractTasks();
+  let id = "abc";
+  let amount_deposit = window.tronWeb.toBigNumber('5000000000000000000').toString();
+  if (contract) {
+
+    contract.createCampaign(id,amount_deposit).send({
+      feeLimit: 100_000_000,
+    })
+  }
+
+  else {
+    console.log("No contract task")
+  }
+}
 
 
-async function getContract(){
+
+async function getContractTasks(){
+  if(walletInstalled()){
+      return window.tronWeb.contract().at(tasksContractAddress);
+  }
+}
+
+
+async function getContractToken(){
     if(walletInstalled()){
         return window.tronWeb.contract().at(tokenContractAddress);
     }
@@ -179,6 +205,10 @@ async function getContract(){
           <h4>Network Selected: {myDetails.network}</h4>
           <h4>Link Established: {myDetails.link}</h4>
         </div>
+
+        <Button onClick={createCampaign} variant="primary">
+			    Create Campaign
+		    </Button>
       </div>
     </div>
   );
