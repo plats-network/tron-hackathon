@@ -3,16 +3,9 @@ import './App.css';
 
 
 import { React, useState , useEffect} from "react";
-import { ethers } from "ethers";
 import "./App.css";
 import { Button, Card } from "react-bootstrap";
-import TronWeb from 'tronweb'
-
-
-
-const tokenContractAddress = "TEVDdsSRWxpPXv1JwGQ2V3ExrRyScpmQPe";
-
-const tasksContractAddress = "TY2dL6sFD1jPmaNkhCDn4iGvLCXwCb1CCa";
+import TronWeb from 'tronweb';
 
 
 
@@ -21,6 +14,16 @@ const mainOptions = {
   solidityNode: "https://api.shasta.trongrid.io",
   eventServer: "https://api.shasta.trongrid.io"
 }
+
+
+const TRONWEB = new TronWeb(mainOptions.fullNode, mainOptions.solidityNode, mainOptions.eventServer, privateKey);
+const tokenContractAddress = "TEVDdsSRWxpPXv1JwGQ2V3ExrRyScpmQPe";
+
+const tasksContractAddress = "TNeUyFA6ZdeC8JCCma4UQuAEHTfPmx9WYE";
+
+
+
+
 
 
 
@@ -96,9 +99,9 @@ function App() {
         let contract = await getContractToken();
         let amountPlat = contract.balanceOf(window.tronWeb.defaultAddress.base58).call().then(function(data) {
 
-          console.log(data);
+        
           let res = window.tronWeb.toDecimal(data["_hex"]);
-          console.log(res);
+          
           return res;
         });
 
@@ -146,11 +149,32 @@ function App() {
 
 const createCampaign = async () =>{
   let contract = await getContractTasks();
-  let id = "abc";
+  let id = "3";
   let amount_deposit = window.tronWeb.toBigNumber('5000000000000000000').toString();
   if (contract) {
 
     contract.createCampaign(id,amount_deposit).send({
+      feeLimit: 100_000_000,
+    }).then((data) => {
+    
+      console.log(data);
+    })
+  }
+
+  else {
+    console.log("No contract task")
+  }
+}
+
+
+const payment = async () =>{
+  let contract = await getContractTasks();
+  let id = "1";
+  let user = ["TNhgNs7znDgwvYrebB6MMSdoTEw8CEWCRJ"];
+  let amount_reward = window.tronWeb.toBigNumber('1000000000000000000').toString();
+  if (contract) {
+
+    contract.payment(id,user,amount_reward).send({
       feeLimit: 100_000_000,
     })
   }
@@ -159,6 +183,8 @@ const createCampaign = async () =>{
     console.log("No contract task")
   }
 }
+
+
 
 
 
@@ -209,6 +235,12 @@ async function getContractToken(){
         <Button onClick={createCampaign} variant="primary">
 			    Create Campaign
 		    </Button>
+
+        <Button onClick={payment} variant="primary">
+			    Payment
+		    </Button>
+
+
       </div>
     </div>
   );
