@@ -16,7 +16,7 @@ const mainOptions = {
 }
 
 
-const TRONWEB = new TronWeb(mainOptions.fullNode, mainOptions.solidityNode, mainOptions.eventServer, privateKey);
+//const TRONWEB = new TronWeb(mainOptions.fullNode, mainOptions.solidityNode, mainOptions.eventServer, privateKey);
 const tokenContractAddress = "TEVDdsSRWxpPXv1JwGQ2V3ExrRyScpmQPe";
 
 const tasksContractAddress = "TNeUyFA6ZdeC8JCCma4UQuAEHTfPmx9WYE";
@@ -167,6 +167,23 @@ const createCampaign = async () =>{
 }
 
 
+const addToken = async () => {
+
+  if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+    
+  //var tronweb = window.tronLink.tronWeb
+    var tronweb = window.tronWeb
+    var tx = await tronweb.request({method: 'wallet_watchAsset',
+                                    params:{type: 'trc20',
+                                            options: {address:tokenContractAddress},
+                                            },
+                                    }
+                                   )
+
+}
+}
+
+
 const payment = async () =>{
   let contract = await getContractTasks();
   let id = "1";
@@ -231,6 +248,9 @@ async function getContractToken(){
           <h4>Network Selected: {myDetails.network}</h4>
           <h4>Link Established: {myDetails.link}</h4>
         </div>
+        <Button onClick={addToken} variant="primary">
+			    Add TOKEN
+		    </Button>
 
         <Button onClick={createCampaign} variant="primary">
 			    Create Campaign
