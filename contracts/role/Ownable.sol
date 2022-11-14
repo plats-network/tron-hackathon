@@ -3,33 +3,40 @@ pragma solidity ^0.5.0;
 
 
 
-contract Ownable {
-
-    address private _owner;
-     /**
-     * @dev Throws if called by any account other than the owner.
-     */
-    modifier onlyOwner() {
-        _checkOwner();
-        _;
-    }
-    
-    /**
-     * @dev Returns the address of the current owner.
-     */
-    function owner() public view  returns (address) {
-        return _owner;
-    }
-
-    /**
-     * @dev Throws if the sender is not the owner.
-     */
-    function _checkOwner() internal view  {
-        require(owner() == msg.sender, "Ownable: caller is not the owner");
-    }
-
-    
-    
+contract Ownable 
+{    
+  // Variable that maintains 
+  // owner address
+  address private _owner;
+  
+  // Sets the original owner of 
+  // contract when it is deployed
+  constructor() public
+  {
+    _owner = msg.sender;
+  }
+  
+  // Publicly exposes who is the
+  // owner of this contract
+  function owner() public view returns(address) 
+  {
+    return _owner;
+  }
+  
+  // onlyOwner modifier that validates only 
+  // if caller of function is contract owner, 
+  // otherwise not
+  modifier onlyOwner() 
+  {
+    require(isOwner(),
+    "Function accessible only by the owner !!");
+    _;
+  }
+  
+  // function for owners to verify their ownership. 
+  // Returns true for owners otherwise false
+  function isOwner() public view returns(bool) 
+  {
+    return msg.sender == _owner;
+  }
 }
-
-
